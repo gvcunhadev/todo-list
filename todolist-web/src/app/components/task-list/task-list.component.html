@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Minha Lista de Tarefas</h1>
+
+  <form class="form-add" (ngSubmit)="adicionarTarefa()">
+    <input
+      type="text"
+      placeholder="O que precisa ser feito?"
+      [(ngModel)]="novaTarefa.descricao"
+      name="descricao"
+      required
+    >
+    <button type="submit">Adicionar</button>
+  </form>
+
+  <ul class="task-list">
+    <li *ngFor="let tarefa of tarefas">
+      <input
+        type="checkbox"
+        [(ngModel)]="tarefa.concluida"
+        (change)="atualizarStatus(tarefa)"
+      >
+      <span [ngClass]="{'completed': tarefa.concluida}">
+        {{ tarefa.descricao }}
+      </span>
+      <button class="delete-btn" (click)="deletarTarefa(tarefa.id)">×</button>
+    </li>
+  </ul>
+</div>

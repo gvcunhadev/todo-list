@@ -1,0 +1,11 @@
+/* src/app/components/task-list/task-list.component.css */
+.container { max-width: 600px; margin: 2rem auto; font-family: sans-serif; padding: 1rem; }
+.form-add { display: flex; margin-bottom: 1.5rem; }
+.form-add input { flex-grow: 1; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px 0 0 4px; }
+.form-add button { padding: 0.8rem 1.2rem; border: none; background-color: #007bff; color: white; cursor: pointer; border-radius: 0 4px 4px 0; }
+.task-list { list-style: none; padding: 0; }
+.task-list li { display: flex; align-items: center; padding: 0.8rem; border-bottom: 1px solid #eee; }
+.task-list li:last-child { border-bottom: none; }
+.task-list li span { flex-grow: 1; margin-left: 1rem; }
+.task-list li span.completed { text-decoration: line-through; color: #888; }
+.delete-btn { border: none; background: transparent; color: #ff4d4d; cursor: pointer; font-size: 1.2rem; font-weight: bold; }
