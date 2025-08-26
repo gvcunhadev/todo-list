@@ -1,6 +1,12 @@
-<div class="container">
-  <h1>Minha Lista de Tarefas</h1>
+<div class="container" [ngClass]="{ 'dark-theme': isDark }">
+  <div class="header">
+    <h1>Minha Lista de Tarefas</h1>
+    <button class="theme-toggle" (click)="toggleTheme()">
+      {{ isDark ? '☀️ Modo Claro' : '🌙 Modo Escuro' }}
+    </button>
+  </div>
 
+  <!-- Formulário -->
   <form class="form-add" (ngSubmit)="adicionarTarefa()">
     <input
       type="text"
@@ -12,6 +18,7 @@
     <button type="submit">Adicionar</button>
   </form>
 
+  <!-- Lista de tarefas -->
   <ul class="task-list">
     <li *ngFor="let tarefa of tarefas">
       <input
@@ -19,10 +26,16 @@
         [(ngModel)]="tarefa.concluida"
         (change)="atualizarStatus(tarefa)"
       >
-      <span [ngClass]="{'completed': tarefa.concluida}">
+      <span [ngClass]="{ 'completed': tarefa.concluida }">
         {{ tarefa.descricao }}
       </span>
       <button class="delete-btn" (click)="deletarTarefa(tarefa.id)">×</button>
     </li>
   </ul>
 </div>
+
+<!-- Rodapé -->
+<footer class="footer">
+  <p>Desenvolvido por Gabriela Cunha</p>
+  <a href="https://github.com/gabrielacunha" target="_blank">GitHub</a>
+</footer>

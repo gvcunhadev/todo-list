@@ -21,6 +21,8 @@ export class TaskListComponent implements OnInit {
   tarefas: Tarefa[] = [];
   novaTarefa: Tarefa = { descricao: '', concluida: false };
 
+  isDark = false;
+
   constructor(private tarefaService: TarefaService) { }
 
   // ngOnInit é executado quando o componente é inicializado.
@@ -54,5 +56,14 @@ export class TaskListComponent implements OnInit {
       // Remove a tarefa da lista local para atualizar a UI instantaneamente
       this.tarefas = this.tarefas.filter(t => t.id !== id);
     });
+  }
+
+    toggleTheme(): void {
+    this.isDark = !this.isDark;
+    if (this.isDark) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
   }
 }
